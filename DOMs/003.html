@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dom.css">
+    <link rel="stylesheet" href="../fontawsome/css/all.min.css">
+    <title>IMC</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><button class="return" style="width: 90px;"><i class="fa-solid fa-arrow-left"></i></button></a>
+    </header>
+    <main>
+        <div class="form">
+            <Label>Digite sua altura</Label>
+            <input type="text" placeholder="Digite aqui" id="altura">
+            <Label>Digite seu peso</Label>
+            <input type="text" placeholder="Digite aqui" id="peso">
+            <div class="botoes">
+                <button class="return" onclick="enviar()">Enviar</button>
+                <button class="return" onclick="limpar()">Limpar</button>
+            </div>
+        </div>
+        
+        <div class="resultado">
+            <div style="margin-bottom: 30px;">Resultado:</div>
+            <div class="entre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad tenetur, molestias aliquid iste repellat fugiat perferendis inventor et, a natus.</div>
+        </div>
+    </main>
+    <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
+    <script>
+        function enviar() {
+            const output = document.querySelector(".entre");
+            let peso = parseFloat(document.querySelector("#peso").value);
+            let altura = parseFloat(document.querySelector("#altura").value);
+            let calc = peso/(altura*altura);
+
+            if (calc < 18.5) {
+                output.innerHTML = (`Seu imc é ${(calc.toFixed(2)).replace(".", ",")}. Você está abaixo do peso ideal!`);
+
+            }else if(calc >= 18.5 && calc < 25 ) {
+                output.innerHTML = (`Seu imc é ${calc.toFixed(2).replace(".", ",")}. Você está no peso ideal!`);
+
+            }else if(calc >= 25 && calc < 30) {
+                output.innerHTML = (`Seu imc é ${calc.toFixed(2).replace(".", ",")}. Você está no sobrepeso!`);
+
+            }else if(calc >= 30 && calc < 40) {
+                output.innerHTML = (`Seu imc é ${calc.toFixed(2).replace(".", ",")}. Você está com obesidade!`);
+
+            }else {
+                output.innerHTML = (`Seu imc é ${(calc.toFixed(2)).replace(".", ",")}. Você está com obesidade grave!`);
+            }
+        }
+
+        function limpar() {
+            const limpa = document.querySelector("#altura");
+            limpa.value = '';
+            const limpa2 = document.querySelector("#peso");
+            limpa2.value = '';
+            const output = document.querySelector(".entre");
+            output.innerHTML = ('');   
+        }
+    </script>
+</body>
+</html>

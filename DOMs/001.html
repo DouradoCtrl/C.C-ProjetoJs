@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dom.css">
+    <link rel="stylesheet" href="../fontawsome/css/all.min.css">
+    <title>Tabuada</title>
+</head>
+<style>
+    :root {
+    --body-bg-color: #121214;
+    --text-color: #E1E1E6;
+    --title-color: #04D361;
+    --form-color: #A8A8A8;
+    --bg-button-color: #6946B9;
+}
+    select{
+        background-color: transparent;
+        border: 1px solid var(--bg-button-color);
+        margin: 0;
+        color: var(--text-color);
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 17.6px;
+        outline: none;
+        cursor: pointer;       
+    }
+    select:hover {
+        border: 1px solid var(--bg-button-color);
+        filter: brightness(120%);
+        color: var(--bg-button-color);
+        transform:scale(1.05);
+        transition: 0.2s;
+    }
+    .botoes {
+        align-self: center;
+    }
+    option {
+        color: var(--body-bg-color);
+        background-color: var(--text-color);
+        font-size: 1rem;
+    }
+</style>
+<body>
+    <div class="cen">
+    <header>
+        <a href="../index.html"><button class="return" style="width: 90px;"><i class="fa-solid fa-arrow-left"></i></button></a>
+    </header>
+    <main>
+        <div class="form">
+            <Label>Digite um número</Label>
+            <input type="text" placeholder="Digite aqui" id="number">
+            <div class="botoes">
+                <select name="selecione" id="op">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">x</option>
+                    <option value="/">÷</option>
+                </select>
+                <button class="return" onclick="enviar()">Enviar</button>
+                <button class="return" onclick="limpar()">Limpar</button>
+            </div>
+        </div>
+        
+        <div class="resultado">
+            <div style="margin-bottom: 30px;">Resultado:</div>
+            <div class="entre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad tenetur, molestias aliquid iste repellat fugiat perferendis inventor et, a natus.</div>
+        </div>
+    </main>
+    <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
+    </div>
+    <script>
+        function enviar() {
+            let tabuada = [4];
+            tabuada[0] = Number(document.querySelector("#number").value);
+            tabuada[2] = document.querySelector(".entre");
+            tabuada[1] = document.querySelector("#op").value;
+
+            if (tabuada[0] === 0) {
+                alert("Error!!\nCampo vazio ou número igual a 0");
+            }else {
+                tabuada[2].innerHTML = ("");
+                switch (tabuada[1]) {
+                    case "+":
+                        for (i = 0;  i <= 10;  i++) {
+                            tabuada[3] = Number(tabuada[0]+i);
+                            tabuada[2].innerHTML += (`${tabuada[0]} + ${i} = ${tabuada[3]}<br>`);
+                        }
+                        break;
+                    case "-":
+                        for (i = 0;  i <= 10;  i++) {
+                            tabuada[3] = Number((tabuada[0]+i) - tabuada[0]);
+                            tabuada[2].innerHTML += (`${tabuada[0]+i} - ${tabuada[0]} = ${tabuada[3]}<br>`);
+                        }
+                        break;
+                    case "*":
+                        for (i = 0;  i <= 10;  i++) {
+                                tabuada[3] = Number(tabuada[0]*i);
+                                tabuada[2].innerHTML += (`${tabuada[0]} x ${i} = ${tabuada[3]}<br>`);
+                            }
+                        break;
+                    case "/":
+                        for (i = 0;  i <= 10;  i++) {
+                            tabuada[3] = Number((tabuada[0]*i)/tabuada[0]);
+                            tabuada[2].innerHTML += (`${tabuada[0]*i} ÷ ${tabuada[0]} = ${tabuada[3]}<br>`);
+                        }
+                        break;
+                }
+            }
+        }
+        function limpar() {
+            const limpa = document.querySelector("#number");
+            limpa.value = '';
+            const output = document.querySelector(".entre");
+            output.innerHTML = ('');   
+        }
+    </script>
+</body>
+</html>

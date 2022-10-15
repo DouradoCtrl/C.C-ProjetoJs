@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dom.css">
+    <link rel="stylesheet" href="../fontawsome/css/all.min.css">
+    <title>Cache</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><button class="return" style="width: 90px;"><i class="fa-solid fa-arrow-left"></i></button></a>
+    </header>
+    <main>
+        <div class="form">
+            <label for="">Digite o valor da conta</label>
+            <input type="text" placeholder="Digite aqui" id="conta">
+            <label for="">Digite o cache "%" do garçon</label>
+            <input type="text" placeholder="Digite aqui" id="cache">
+            <div class="botoes">
+                <button class="return" onclick="enviar()">Enviar</button>
+                <button class="return" onclick="limpar()">Limpar</button>
+            </div>
+        </div>
+        
+        <div class="resultado">
+            <div style="margin-bottom: 30px;">Resultado:</div>
+            <div class="entre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad tenetur, molestias aliquid iste repellat fugiat perferendis inventor et, a natus.</div>
+        </div>
+    </main>
+    <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
+    <script>
+        function enviar() {
+            const output = document.querySelector(".entre");
+            let conta = parseFloat(document.querySelector("#conta").value);
+            let cache = parseFloat(document.querySelector("#cache").value);
+            let incremento = cache/100;
+            let final = (conta*incremento   ) + conta;
+
+            output.innerHTML = `A valor final da conta é R$ ${(final.toFixed(2)).replace(".",",")}`;  
+        }
+        
+
+        function limpar() {
+            const output = document.querySelector(".entre");
+            const conta = document.querySelector("#conta");
+            const cache = document.querySelector("#cache");
+            conta.value = "";
+            cache.value = "";
+            output.innerHTML = "";
+        }
+    </script>
+</body>
+</html>

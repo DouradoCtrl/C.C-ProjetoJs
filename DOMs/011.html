@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dom.css">
+    <link rel="stylesheet" href="../fontawsome/css/all.min.css">
+    <title>Par ou impar</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><button class="return" style="width: 90px;"><i class="fa-solid fa-arrow-left"></i></button></a>
+    </header>
+    <main>
+        <div class="form">
+            <Label>Digite um número</Label>
+            <input type="text" placeholder="Digite aqui" id="number">
+            <div class="botoes">
+                <button class="return" onclick="enviar()">Enviar</button>
+                <button class="return" onclick="limpar()">Limpar</button>
+            </div>
+        </div>
+        
+        <div class="resultado">
+            <div style="margin-bottom: 30px;">Resultado:</div>
+            <div class="entre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad tenetur, molestias aliquid iste repellat fugiat perferendis inventor et, a natus.</div>
+        </div>
+    </main>
+    <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
+    <script>
+        function enviar() {
+            let number = parseInt(document.querySelector("#number").value);
+            const output = document.querySelector(".entre");
+            if (number % 2 == 0) {
+                output.innerHTML = (`O número ${number} é par`);
+            }else{
+                output.innerHTML = (`O número ${number} é impar`);
+            }
+        }
+        function limpar() {
+            const limpa = document.querySelector("#number");
+            limpa.value = '';
+            const output = document.querySelector(".entre");
+            output.innerHTML = ('');   
+        }
+    </script>
+</body>
+</html>

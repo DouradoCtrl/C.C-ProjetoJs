@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dom.css">
+    <link rel="stylesheet" href="../fontawsome/css/all.min.css">
+    <title>Cache</title>
+    <style>
+        .botoes {
+            align-self: center;
+        }
+        .form label{
+            align-self: center;
+            
+        }
+        .form {
+            height: 30vh;
+            justify-content: center;
+        }
+        .main {
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><button class="return" style="width: 90px;"><i class="fa-solid fa-arrow-left"></i></button></a>
+    </header>
+    <main>
+        <div class="form">
+            <label for="">Clique em iniciar para acessar o prompt</label>
+            <div class="botoes">
+                <button class="return" onclick="enviar()">Iniciar</button>
+                <button class="return" onclick="limpar()">Limpar</button>
+            </div>
+        </div>
+        
+        <div class="resultado">
+            <div style="margin-bottom: 30px;">Resultado:</div>
+            <div class="entre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad tenetur, molestias aliquid iste repellat fugiat perferendis inventor et, a natus.</div>
+        </div>
+    </main>
+    <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
+    <script>
+        function enviar() {
+            let adc;	
+            let i = 'S';
+            let calc;
+            let cont = 0;
+            let final = 0;
+            let p = document.querySelector(".entre");
+            //inicializo os contadores que precisarei 
+            let sal = parseFloat(prompt("Digite o seu salário: "));
+            //entrada de dados do salário pelo prompt
+                while (i === 'S') {
+                    //enquanto minha variável for "S" meu contador não para
+                    adc = parseFloat(prompt("Qual o valor deste carro:  "));
+                    //entrada de dados
+                    calc = adc*0.05;
+                    //5 porcento do valor do carro
+                    final = final + calc;
+                    //armazenador contador
+                    cont = cont + 1;
+                    //incrementação contador de carros vendidos
+                    console.log(`Você recebeu uma comissão de R$ ${calc.toFixed(2)} ao vender este carro!`);
+                    //saída da dados da comissão imediata
+                    i = String(prompt("Mais um carro vendido [S/n]: ")).toUpperCase();
+                    //pede confirmação para se quer continuar
+                    //toUpperCase = quando o valor for "s" minusculo ele converte para maiúsculo e
+                    //continua o contador
+                
+                }
+            p.innerHTML = (`Você vendeu ${cont} carros e ganhou um aumento de R$ ${(final.toFixed(2)).replace(".",",")} 
+            totalizando uma receita de salário 
+            final de R$ ${((sal + final).toFixed(2)).replace(".",",")}`);
+            
+            }
+        
+
+        function limpar() {
+            const output = document.querySelector(".entre");
+            output.innerHTML = "";
+        }
+    </script>
+</body>
+</html>

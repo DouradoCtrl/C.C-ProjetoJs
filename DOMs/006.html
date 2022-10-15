@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dom.css">
+    <link rel="stylesheet" href="../fontawsome/css/all.min.css">
+    <title>Idade em dias</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><button class="return" style="width: 90px;"><i class="fa-solid fa-arrow-left"></i></button></a>
+    </header>
+    <main>
+        <div class="form">
+            <Label>Digite a sua idade</Label>
+            <input type="number" placeholder="Digite aqui" id="anos">
+            <Label>Digite os meses restantes</Label>
+            <input type="number" placeholder="Digite aqui" id="meses">
+            <Label>Digite os dias restantes</Label>
+            <input type="number" placeholder="Digite aqui" id="dias">
+            <div class="botoes">
+                <button class="return" onclick="enviar()">Enviar</button>
+                <button class="return" onclick="limpar()">Limpar</button>
+            </div>
+        </div>
+        
+        <div class="resultado">
+            <div style="margin-bottom: 30px;">Resultado:</div>
+            <div class="entre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad tenetur, molestias aliquid iste repellat fugiat perferendis inventor et, a natus.</div>
+        </div>
+    </main>
+    <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
+    <script>
+        function enviar() {
+            let anos = parseInt(document.querySelector("#anos").value);
+            let meses = parseInt(document.querySelector("#meses").value);
+            let dias = parseInt(document.querySelector("#dias").value);
+            let calc;
+            const output = document.querySelector(".entre");
+
+            if (meses > 11 && dias > 30) {
+                output.innerHTML = (`Erro!!<br>A quantidade de meses excedeu o valor máximo 11 e a quantidade de dias excedeu o valor máximo de 30.<br>Limpe e tente novamente! `);
+            }else if(meses > 11) {
+                output.innerHTML = (`Erro!!<br>Os meses excedeu a quantidade máxima de 11.<br>Limpe e tente novamente!`);
+            }else if(dias > 30) {
+                output.innerHTML = (`Erro!!<br>A quantidade de dias excedeu o valor máximo de 30.<br>Limpe e tente novamente!`);
+            }else {
+                calc = (anos*365)+(meses*30)+dias;
+                output.innerHTML = (`Você viveu aproximadamente ${calc} dias`);
+            }
+            
+        }
+        function limpar() {
+            const limpa = document.querySelector("#dias");
+            const limpa2 = document.querySelector("#meses");
+            const limpa3 = document.querySelector("#anos");
+            limpa.value = '';
+            limpa2.value = '';
+            limpa3.value = '';
+            const output = document.querySelector(".entre");
+            output.innerHTML = ('');   
+        }
+    </script>
+</body>
+</html>

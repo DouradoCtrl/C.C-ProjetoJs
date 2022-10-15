@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dom.css">
+    <link rel="stylesheet" href="../fontawsome/css/all.min.css">
+    <title>Consumo do carro</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><button class="return" style="width: 90px;"><i class="fa-solid fa-arrow-left"></i></button></a>
+    </header>
+    <main>
+        <div class="form">
+            <Label>Preço da gasolina</Label>
+            <input type="text" placeholder="Digite aqui" id="gasolina">
+            <Label>Litros por km</Label>
+            <input type="text" placeholder="Digite aqui" id="litros">
+            <Label>Distância em km</Label>
+            <input type="text" placeholder="Digite aqui" id="distancia">
+            <div class="botoes">
+                <button class="return" onclick="enviar()">Enviar</button>
+                <button class="return" onclick="limpar()">Limpar</button>
+            </div>
+        </div>
+        
+        <div class="resultado">
+            <div style="margin-bottom: 30px;">Resultado:</div>
+            <div class="entre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad tenetur, molestias aliquid iste repellat fugiat perferendis inventor et, a natus.</div>
+        </div>
+    </main>
+    <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
+    <script>
+        function enviar() {
+            let gasolina = parseFloat(document.querySelector("#gasolina").value);
+            let litros = parseFloat(document.querySelector("#litros").value);
+            let distancia = parseFloat(document.querySelector("#distancia").value);
+            let calc = distancia/litros;
+            let calc2 = calc*gasolina;
+            const output = document.querySelector(".entre");
+            output.innerHTML = (`Você gastará R$ ${(calc2.toFixed(2)).replace(".",",")} para percorrer ${distancia} km com seu carro.`);
+            
+        }
+        function limpar() {
+            const output = document.querySelector(".entre");
+            output.innerHTML = ("");
+            let gasolina = document.querySelector("#gasolina");
+            let litros = document.querySelector("#litros");
+            let distancia = document.querySelector("#distancia");
+            gasolina.value = "";
+            litros.value = "";
+            distancia.value = "";
+        }
+    </script>
+</body>
+</html>
