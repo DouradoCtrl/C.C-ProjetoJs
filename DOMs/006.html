@@ -14,12 +14,8 @@
     </header>
     <main>
         <div class="form">
-            <Label>Digite a sua idade</Label>
-            <input type="number" placeholder="Digite aqui" id="anos">
-            <Label>Digite os meses restantes</Label>
-            <input type="number" placeholder="Digite aqui" id="meses">
-            <Label>Digite os dias restantes</Label>
-            <input type="number" placeholder="Digite aqui" id="dias">
+            <label for="">Digite sua data de nascimento</label>
+            <input type="date" id="data">
             <div class="botoes">
                 <button class="return" onclick="enviar()">Enviar</button>
                 <button class="return" onclick="limpar()">Limpar</button>
@@ -34,33 +30,25 @@
     <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
     <script>
         function enviar() {
-            let anos = parseInt(document.querySelector("#anos").value);
-            let meses = parseInt(document.querySelector("#meses").value);
-            let dias = parseInt(document.querySelector("#dias").value);
-            let calc;
             const output = document.querySelector(".entre");
-
-            if (meses > 11 && dias > 30) {
-                output.innerHTML = (`Erro!!<br>A quantidade de meses excedeu o valor máximo 11 e a quantidade de dias excedeu o valor máximo de 30.<br>Limpe e tente novamente! `);
-            }else if(meses > 11) {
-                output.innerHTML = (`Erro!!<br>Os meses excedeu a quantidade máxima de 11.<br>Limpe e tente novamente!`);
-            }else if(dias > 30) {
-                output.innerHTML = (`Erro!!<br>A quantidade de dias excedeu o valor máximo de 30.<br>Limpe e tente novamente!`);
-            }else {
-                calc = (anos*365)+(meses*30)+dias;
-                output.innerHTML = (`Você viveu aproximadamente ${calc} dias`);
-            }
+            let dataNasc = document.querySelector("#data").value;
+            let datePassada = new Date(dataNasc);
+            let dateAtual = new Date();
+            let mesAtual = (parseInt(dateAtual.getMonth())) + 1;
+            let mesPassado = parseInt(datePassada.getMonth()) + 1;
+            let anoPassado = parseInt(datePassada.getFullYear());
+            let anoAtual = parseInt(dateAtual.getFullYear());
+            let diaPassado = parseInt(datePassada.getDate()) + 1;
+            let diaAtual = parseInt(dateAtual.getDate());
             
+            let calc = (anoAtual - anoPassado)*365 + (mesAtual - mesPassado)*30 + diaAtual;
+            output.innerHTML = `Você viveu aproximadamente ${calc} dias`;
         }
         function limpar() {
-            const limpa = document.querySelector("#dias");
-            const limpa2 = document.querySelector("#meses");
-            const limpa3 = document.querySelector("#anos");
-            limpa.value = '';
-            limpa2.value = '';
-            limpa3.value = '';
+            const limpa = document.querySelector("#data");
             const output = document.querySelector(".entre");
-            output.innerHTML = ('');   
+            limpa.value = '';
+            output.innerHTML = "";
         }
     </script>
 </body>

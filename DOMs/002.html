@@ -15,13 +15,13 @@
     <main>
         <div class="form">
             <Label>1° Bimestre</Label>
-            <input type="text" placeholder="Digite aqui" id="nota1">
+            <input type="number" placeholder="Digite aqui" id="nota1">
             <Label>2° Bimestre</Label>
-            <input type="text" placeholder="Digite aqui" id="nota2">
+            <input type="number" placeholder="Digite aqui" id="nota2">
             <Label>3° Bimestre</Label>
-            <input type="text" placeholder="Digite aqui" id="nota3">
+            <input type="number" placeholder="Digite aqui" id="nota3">
             <Label>4° Bimestre</Label>
-            <input type="text" placeholder="Digite aqui" id="nota4">
+            <input type="number" placeholder="Digite aqui" id="nota4">
             <div class="botoes">
                 <button class="return" onclick="enviar()">Enviar</button>
                 <button class="return" onclick="limpar()">Limpar</button>
@@ -37,10 +37,15 @@
     <script>
         function enviar() {
             let nota = [4];
-            nota[0] = parseFloat(document.querySelector("#nota1").value);
-            nota[1] = parseFloat(document.querySelector("#nota2").value);
-            nota[2] = parseFloat(document.querySelector("#nota3").value);
-            nota[3] = parseFloat(document.querySelector("#nota4").value);
+            nota[0] = String(document.querySelector("#nota1").value);
+            nota[0] = parseFloat(nota[0].replace(",","."));
+            nota[1] = String(document.querySelector("#nota2").value);
+            nota[1] = parseFloat(nota[1].replace(",","."));
+            nota[2] = String(document.querySelector("#nota3").value);
+            nota[2] = parseFloat(nota[2].replace(",","."));
+            nota[3] = String(document.querySelector("#nota4").value);
+            nota[3] = parseFloat(nota[3].replace(",","."));
+
             let i = 0;
             let soma = 0;
             let media = 0;

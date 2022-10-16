@@ -15,7 +15,7 @@
     <main>
         <div class="form">
             <Label>Digite um número</Label>
-            <input type="text" placeholder="Digite aqui" id="number">
+            <input type="number" placeholder="Digite aqui" id="number">
             <div class="botoes">
                 <button class="return" onclick="enviar()">Enviar</button>
                 <button class="return" onclick="limpar()">Limpar</button>
@@ -30,12 +30,13 @@
     <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
     <script>
         function enviar() {
-            let number = parseInt(document.querySelector("#number").value);
+            let number = String(document.querySelector("#number").value);
+            number = parseFloat(number.replace(",","."));
             const output = document.querySelector(".entre");
             if (number % 2 == 0) {
-                output.innerHTML = (`O número ${number} é par`);
+                output.innerHTML = (`O número ${(number.toFixed(0)).replace(".",",")} é par`);
             }else{
-                output.innerHTML = (`O número ${number} é impar`);
+                output.innerHTML = (`O número ${(number.toFixed(0)).replace(".",",")} é impar`);
             }
         }
         function limpar() {

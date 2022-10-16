@@ -15,9 +15,9 @@
     <main>
         <div class="form">
             <label for="">Digite o valor da conta</label>
-            <input type="text" placeholder="Digite aqui" id="conta">
+            <input type="number" placeholder="Digite aqui" id="conta">
             <label for="">Digite o cache "%" do garçon</label>
-            <input type="text" placeholder="Digite aqui" id="cache">
+            <input type="number" placeholder="Digite aqui" id="cache">
             <div class="botoes">
                 <button class="return" onclick="enviar()">Enviar</button>
                 <button class="return" onclick="limpar()">Limpar</button>
@@ -33,10 +33,12 @@
     <script>
         function enviar() {
             const output = document.querySelector(".entre");
-            let conta = parseFloat(document.querySelector("#conta").value);
-            let cache = parseFloat(document.querySelector("#cache").value);
+            let conta = String(document.querySelector("#conta").value);
+            conta = parseFloat(conta.replace(",","."));
+            let cache = String(document.querySelector("#cache").value);
+            cache = parseFloat(cache.replace(",","."));
             let incremento = cache/100;
-            let final = (conta*incremento   ) + conta;
+            let final = (conta*incremento) + conta;
 
             output.innerHTML = `A valor final da conta é R$ ${(final.toFixed(2)).replace(".",",")}`;  
         }

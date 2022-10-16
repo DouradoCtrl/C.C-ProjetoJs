@@ -15,9 +15,9 @@
     <main>
         <div class="form">
             <label for="">Altura do retângulo</label>
-            <input type="text" placeholder="Digite aqui" id="altura">
+            <input type="number" placeholder="Digite aqui" id="altura">
             <label for="">Comprimento do retângulo</label>
-            <input type="text" placeholder="Digite aqui" id="base">
+            <input type="number" placeholder="Digite aqui" id="base">
             <div class="botoes">
                 <button class="return" onclick="enviar()">Enviar</button>
                 <button class="return" onclick="limpar()">Limpar</button>
@@ -33,15 +33,21 @@
     <script>
         function enviar() {
             const output = document.querySelector(".entre");
-            let altura = parseFloat(document.querySelector("#altura").value);
-            let base = parseFloat(document.querySelector("#base").value);
+            let altura = String(document.querySelector("#altura").value);
+            altura = parseFloat(altura.replace(",", "."));
+            let base = String(document.querySelector("#base").value);
+            base = parseFloat(base.replace(",", "."));
             let area = base*altura;
-
-            output.innerHTML = `A area do seu retângulo é ${area.toFixed(2)}`;  
+            area = area.toFixed(2);
+            output.innerHTML = `A area do seu retângulo é ${area.replace(".", ",")}`;  
         }
         
 
         function limpar() {
+            let altura = document.querySelector("#altura");
+            let base = document.querySelector("#base");
+            altura.value = "";
+            base.value = "";
             const output = document.querySelector(".entre");
             output.innerHTML = "";
         }
