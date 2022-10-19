@@ -23,8 +23,8 @@
             <Label>4° Bimestre</Label>
             <input type="number" placeholder="Digite aqui" id="nota4">
             <div class="botoes">
-                <button class="return" onclick="enviar()">Enviar</button>
-                <button class="return" onclick="limpar()">Limpar</button>
+                <button class="return" onclick="enviar2()">Enviar</button>
+                <button class="return" onclick="limpar2()">Limpar</button>
             </div>
         </div>
         
@@ -34,42 +34,6 @@
         </div>
     </main>
     <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
-    <script>
-        function enviar() {
-            let nota = [4];
-            nota[0] = String(document.querySelector("#nota1").value);
-            nota[0] = parseFloat(nota[0].replace(",","."));
-            nota[1] = String(document.querySelector("#nota2").value);
-            nota[1] = parseFloat(nota[1].replace(",","."));
-            nota[2] = String(document.querySelector("#nota3").value);
-            nota[2] = parseFloat(nota[2].replace(",","."));
-            nota[3] = String(document.querySelector("#nota4").value);
-            nota[3] = parseFloat(nota[3].replace(",","."));
-
-            let i = 0;
-            let soma = 0;
-            let media = 0;
-            const output = document.querySelector(".entre");
-            for(i in nota) {
-                soma += nota[i];
-            }
-            media = soma/nota.length;
-            output.innerHTML = (`Media dos alunos ${(media.toFixed(2)).replace(".", ",")}`);
-        }
-
-        function limpar() {
-            const limpa1 = document.querySelector("#nota1");    
-            const limpa2 = document.querySelector("#nota2");    
-            const limpa3 = document.querySelector("#nota3");    
-            const limpa4 = document.querySelector("#nota4");
-            const output = document.querySelector(".entre");
-            limpa1.value =("");    
-            limpa2.value =("");    
-            limpa3.value =("");    
-            limpa4.value =("");
-            output.innerHTML = ("");
-   
-        }
-    </script>
+    <script src="../Script/AllScript.js"></script>
 </body>
 </html>

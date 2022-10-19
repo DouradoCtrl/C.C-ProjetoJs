@@ -17,8 +17,8 @@
             <label for="">Digite sua data de nascimento</label>
             <input type="date" id="data">
             <div class="botoes">
-                <button class="return" onclick="enviar()">Enviar</button>
-                <button class="return" onclick="limpar()">Limpar</button>
+                <button class="return" onclick="enviar6()">Enviar</button>
+                <button class="return" onclick="limpar6()">Limpar</button>
             </div>
         </div>
         
@@ -28,28 +28,6 @@
         </div>
     </main>
     <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
-    <script>
-        function enviar() {
-            const output = document.querySelector(".entre");
-            let dataNasc = document.querySelector("#data").value;
-            let datePassada = new Date(dataNasc);
-            let dateAtual = new Date();
-            let mesAtual = (parseInt(dateAtual.getMonth())) + 1;
-            let mesPassado = parseInt(datePassada.getMonth()) + 1;
-            let anoPassado = parseInt(datePassada.getFullYear());
-            let anoAtual = parseInt(dateAtual.getFullYear());
-            let diaPassado = parseInt(datePassada.getDate()) + 1;
-            let diaAtual = parseInt(dateAtual.getDate());
-            
-            let calc = (anoAtual - anoPassado)*365 + (mesAtual - mesPassado)*30 + diaAtual;
-            output.innerHTML = `Você viveu aproximadamente ${calc} dias`;
-        }
-        function limpar() {
-            const limpa = document.querySelector("#data");
-            const output = document.querySelector(".entre");
-            limpa.value = '';
-            output.innerHTML = "";
-        }
-    </script>
+    <script src="../Script/AllScript.js"></script>
 </body>
 </html>

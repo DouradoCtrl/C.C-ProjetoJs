@@ -59,8 +59,8 @@
                     <option value="*">x</option>
                     <option value="/">÷</option>
                 </select>
-                <button class="return" onclick="enviar()">Enviar</button>
-                <button class="return" onclick="limpar()">Limpar</button>
+                <button class="return" onclick="enviar1()">Enviar</button>
+                <button class="return" onclick="limpar1()">Limpar</button>
             </div>
         </div>
         
@@ -71,51 +71,6 @@
     </main>
     <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
     </div>
-    <script>
-        function enviar() {
-            let tabuada = [4];
-            tabuada[0] = Number(document.querySelector("#number").value);
-            tabuada[2] = document.querySelector(".entre");
-            tabuada[1] = document.querySelector("#op").value;
-
-            if (tabuada[0] === 0) {
-                alert("Error!!\nCampo vazio ou número igual a 0");
-            }else {
-                tabuada[2].innerHTML = ("");
-                switch (tabuada[1]) {
-                    case "+":
-                        for (i = 0;  i <= 10;  i++) {
-                            tabuada[3] = Number(tabuada[0]+i);
-                            tabuada[2].innerHTML += (`${tabuada[0]} + ${i} = ${tabuada[3]}<br>`);
-                        }
-                        break;
-                    case "-":
-                        for (i = 0;  i <= 10;  i++) {
-                            tabuada[3] = Number((tabuada[0]+i) - tabuada[0]);
-                            tabuada[2].innerHTML += (`${tabuada[0]+i} - ${tabuada[0]} = ${tabuada[3]}<br>`);
-                        }
-                        break;
-                    case "*":
-                        for (i = 0;  i <= 10;  i++) {
-                                tabuada[3] = Number(tabuada[0]*i);
-                                tabuada[2].innerHTML += (`${tabuada[0]} x ${i} = ${tabuada[3]}<br>`);
-                            }
-                        break;
-                    case "/":
-                        for (i = 0;  i <= 10;  i++) {
-                            tabuada[3] = Number((tabuada[0]*i)/tabuada[0]);
-                            tabuada[2].innerHTML += (`${tabuada[0]*i} ÷ ${tabuada[0]} = ${tabuada[3]}<br>`);
-                        }
-                        break;
-                }
-            }
-        }
-        function limpar() {
-            const limpa = document.querySelector("#number");
-            limpa.value = '';
-            const output = document.querySelector(".entre");
-            output.innerHTML = ('');   
-        }
-    </script>
+    <script src="../Script/AllScript.js"></script>
 </body>
 </html>

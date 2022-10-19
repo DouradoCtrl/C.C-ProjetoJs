@@ -23,8 +23,8 @@
                 <label for="">Feminino</label>
             </div>
             <div class="botoes">
-                <button class="return" onclick="enviar()">Enviar</button>
-                <button class="return" onclick="limpar()">Limpar</button>
+                <button class="return" onclick="enviar4()">Enviar</button>
+                <button class="return" onclick="limpar4()">Limpar</button>
             </div>
         </div>
         
@@ -34,30 +34,6 @@
         </div>
     </main>
     <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
-    <script>
-        function enviar() {
-            const output = document.querySelector(".entre");
-            let altura = String(document.querySelector("#altura").value);
-            altura = parseFloat(altura.replace(",","."));
-            let m = document.querySelector("#m");
-            let f = document.querySelector("#f");
-            let calc;
-
-            if (m.checked == true) {
-                calc = (72.7*altura) - 58;
-                output.innerHTML = (`O peso ideal para um homem de ${altura.toFixed(2)} é ${(calc.toFixed(2)).replace(".", ",")} kg `);
-            }else if(f.checked == true) {
-                calc = (62.1*altura) - 44.7;
-                output.innerHTML = (`O peso ideal para uma mulher de ${altura.toFixed(2)} é ${(calc.toFixed(2)).replace(".", ",")} kg `);
-            }
-        }
-
-        function limpar() {
-            const limpa = document.querySelector("#altura");
-            limpa.value = '';
-            const output = document.querySelector(".entre");
-            output.innerHTML = ('');   
-        }
-    </script>
+    <script src="../Script/AllScript.js"></script>
 </body>
 </html>

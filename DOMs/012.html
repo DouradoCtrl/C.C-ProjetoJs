@@ -17,8 +17,8 @@
             <label for="">Quantos dias de viagem</label>
             <input type="number" placeholder="Digite aqui" id="dias">
             <div class="botoes">
-                <button class="return" onclick="enviar()">Enviar</button>
-                <button class="return" onclick="limpar()">Limpar</button>
+                <button class="return" onclick="enviar12()">Enviar</button>
+                <button class="return" onclick="limpar12()">Limpar</button>
             </div>
         </div>
         
@@ -28,23 +28,6 @@
         </div>
     </main>
     <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
-    <script>
-        
-        function enviar() {
-            const output = document.querySelector(".entre");
-            let dias = parseInt(document.querySelector("#dias").value);
-
-            let calc = dias*24;
-
-            output.innerHTML = (`Você viajou aproximadamente ${calc} horas.`);
-        }
-        function limpar () {
-            const output = document.querySelector(".entre");
-            const dias = document.querySelector("#dias");
-            dias.value = ("");
-            output.innerHTML = "";
-        }
-    </script>
-    
+    <script src="../Script/AllScript.js"></script>
 </body>
 </html>

@@ -19,8 +19,8 @@
             <Label>Digite seu peso</Label>
             <input type="number" placeholder="Digite aqui" id="peso">
             <div class="botoes">
-                <button class="return" onclick="enviar()">Enviar</button>
-                <button class="return" onclick="limpar()">Limpar</button>
+                <button class="return" onclick="enviar3()">Enviar</button>
+                <button class="return" onclick="limpar3()">Limpar</button>
             </div>
         </div>
         
@@ -30,40 +30,6 @@
         </div>
     </main>
     <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
-    <script>
-        function enviar() {
-            const output = document.querySelector(".entre");
-            let peso = String(document.querySelector("#peso").value);
-            peso = parseFloat(peso.replace(",","."));
-            let altura = String(document.querySelector("#altura").value);
-            altura = parseFloat(altura.replace(",","."));
-            let calc = peso/(altura*altura);
-
-            if (calc < 18.5) {
-                output.innerHTML = (`Seu imc é ${(calc.toFixed(2)).replace(".", ",")}. Você está abaixo do peso ideal!`);
-
-            }else if(calc >= 18.5 && calc < 25 ) {
-                output.innerHTML = (`Seu imc é ${calc.toFixed(2).replace(".", ",")}. Você está no peso ideal!`);
-
-            }else if(calc >= 25 && calc < 30) {
-                output.innerHTML = (`Seu imc é ${calc.toFixed(2).replace(".", ",")}. Você está no sobrepeso!`);
-
-            }else if(calc >= 30 && calc < 40) {
-                output.innerHTML = (`Seu imc é ${calc.toFixed(2).replace(".", ",")}. Você está com obesidade!`);
-
-            }else {
-                output.innerHTML = (`Seu imc é ${(calc.toFixed(2)).replace(".", ",")}. Você está com obesidade grave!`);
-            }
-        }
-
-        function limpar() {
-            const limpa = document.querySelector("#altura");
-            limpa.value = '';
-            const limpa2 = document.querySelector("#peso");
-            limpa2.value = '';
-            const output = document.querySelector(".entre");
-            output.innerHTML = ('');   
-        }
-    </script>
+    <script src="../Script/AllScript.js"></script>
 </body>
 </html>

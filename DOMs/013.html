@@ -21,8 +21,8 @@
             <Label>Distância em km</Label>
             <input type="number" placeholder="Digite aqui" id="distancia">
             <div class="botoes">
-                <button class="return" onclick="enviar()">Enviar</button>
-                <button class="return" onclick="limpar()">Limpar</button>
+                <button class="return" onclick="enviar13()">Enviar</button>
+                <button class="return" onclick="limpar13()">Limpar</button>
             </div>
         </div>
         
@@ -32,30 +32,6 @@
         </div>
     </main>
     <footer><a href="https://github.com/DouradoALT" target="_blank"><i class="fa-brands fa-github"></i><div class="name">DouradoALT</div></a></footer>
-    <script>
-        function enviar() {
-            let gasolina = String(document.querySelector("#gasolina").value);
-            gasolina = parseFloat(gasolina.replace(",","."));
-            let litros = String(document.querySelector("#litros").value);
-            litros = parseFloat(litros.replace(",","."));
-            let distancia = String(document.querySelector("#distancia").value);
-            distancia = parseFloat(distancia.replace(",","."));
-            let calc = distancia/litros;
-            let calc2 = calc*gasolina;
-            const output = document.querySelector(".entre");
-            output.innerHTML = (`Você gastará R$ ${(calc2.toFixed(2)).replace(".",",")} para percorrer ${distancia} km com seu carro.`);
-            
-        }
-        function limpar() {
-            const output = document.querySelector(".entre");
-            output.innerHTML = ("");
-            let gasolina = document.querySelector("#gasolina");
-            let litros = document.querySelector("#litros");
-            let distancia = document.querySelector("#distancia");
-            gasolina.value = "";
-            litros.value = "";
-            distancia.value = "";
-        }
-    </script>
+    <script src="../Script/AllScript.js"></script>
 </body>
 </html>
