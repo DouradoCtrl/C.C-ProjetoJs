@@ -40,16 +40,25 @@ header a:hover {
     color: var(--bg-button-color);
     filter: brightness(170%);
 }
+
 button {
     color: var(--text-color);
     border-radius: 6px;
     font-size: 1.2rem;
-    background-color: var(--bg-button-color);
     width: 250px;
     height: 125px;
     border: none;
     cursor: pointer;
+    background-size: 250% 250%;
+    background-image: linear-gradient(
+        -45deg, 
+        #8257E6 25%,
+        #6544B3 51%, 
+        #3A2766 100% 
+  );  
+  animation: AnimateBG 5s ease infinite
 }
+
 button:hover {
     filter: brightness(60%);
     transform: scale(1.05);
